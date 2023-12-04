@@ -1,59 +1,72 @@
 import styled from 'styled-components'
+
 import { mixins } from '../../styles/mixins'
 
-export const CardContainer = styled.div`
-  background: ${({ theme }) => theme.COLORS['base-card']};
-  text-align: center;
+export const Container = styled.div`
+  background-color: ${({ theme }) => theme.COLORS['base-card']};
+  padding: 0 20px 20px;
+  border-radius: 6px 36px;
+  width: 256px;
+
   display: flex;
   flex-direction: column;
-  border-radius: 0.375rem 2.25rem;
+
+  text-align: center;
 `
-export const CoffeeImage = styled.img`
+
+export const CoffeeImg = styled.img`
   margin-top: -20px;
   max-width: 120px;
   max-height: 120px;
   align-self: center;
 `
 
-export const Tags = styled.span`
+export const Tags = styled.div`
+  margin-top: 12px;
+
   display: flex;
   align-items: center;
   align-self: center;
   gap: 4px;
 
-  margin-top: 0.75rem;
-
   span {
-    background: ${({ theme }) => theme.COLORS['yellow-light']};
-    color: ${({ theme }) => theme.COLORS['yellow-dark']};
-    padding: 0.25rem 0.5rem;
+    padding: 4px 8px;
     border-radius: 100px;
+    background-color: ${({ theme }) => theme.COLORS['yellow-light']};
+    color: ${({ theme }) => theme.COLORS['yellow-dark']};
     text-transform: uppercase;
     ${mixins.fonts.tag}
   }
 `
 
 export const Title = styled.h3`
-  margin-top: 1rem;
-  ${mixins.fonts.titleXS}
+  margin-top: 16px;
+
+  color: ${({ theme }) => theme.COLORS['base-subtitle']};
+  ${mixins.fonts.titleS}
 `
-export const Description = styled.p`
-  margin: 0.5rem 0 2rem;
-  padding: 0 1.25rem;
-  ${mixins.fonts.textS}
+
+export const Description = styled.span`
+  margin-top: 8px;
+  width: 100%;
+
   color: ${({ theme }) => theme.COLORS['base-label']};
+  ${mixins.fonts.textS}
 `
 
 export const Control = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem 1.25rem;
+
+  margin-top: 32px;
 `
-export const Price = styled.span`
+
+export const Price = styled.div`
   display: flex;
   align-items: baseline;
   gap: 2px;
+
   span:first-child {
     ${mixins.fonts.textS};
     color: ${({ theme }) => theme.COLORS['base-text']};
@@ -64,6 +77,7 @@ export const Price = styled.span`
     color: ${({ theme }) => theme.COLORS['base-text']};
   }
 `
+
 export const Order = styled.div<{ $itemAdded?: boolean }>`
   display: flex;
   align-items: center;

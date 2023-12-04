@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
-export const HeaderContainer = styled.nav`
+import { mixins } from '../../styles/mixins'
+
+export const Container = styled.header`
   max-width: 1160px;
-  padding: 2rem 1.25rem;
+  padding: 32px 20px;
   margin: 0 auto;
 
   display: flex;
@@ -19,7 +21,7 @@ export const Aside = styled.aside`
     align-items: center;
     gap: 4px;
 
-    background: ${({ theme }) => theme.COLORS['purple-light']};
+    background-color: ${({ theme }) => theme.COLORS['purple-light']};
 
     svg {
       color: ${({ theme }) => theme.COLORS.purple};
@@ -29,7 +31,7 @@ export const Aside = styled.aside`
       color: ${({ theme }) => theme.COLORS['purple-dark']};
     }
 
-    padding: 0.5rem;
+    padding: 10px 8px;
     border-radius: 6px;
   }
 
@@ -37,9 +39,34 @@ export const Aside = styled.aside`
     display: flex;
     align-items: center;
 
-    background: ${({ theme }) => theme.COLORS['yellow-light']};
+    background-color: ${({ theme }) => theme.COLORS['yellow-light']};
     color: ${({ theme }) => theme.COLORS['yellow-dark']};
+
+    padding: 8px;
     border-radius: 6px;
-    padding: 0.5rem;
+
+    position: relative;
+
+    &[aria-disabled='true'] {
+      pointer-events: none;
+    }
+
+    span {
+      ${mixins.fonts.textS};
+      font-weight: bold;
+      color: ${({ theme }) => theme.COLORS.white};
+      background-color: ${({ theme }) => theme.COLORS['yellow-dark']};
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      transform: translate(50%, -50%);
+    }
   }
 `

@@ -1,16 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 import { mixins } from './mixins'
 
-export const GlobalStyles = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   body {
-    background: ${({ theme }) => theme.COLORS.background};
-    color: ${({ theme }) => theme.COLORS['base-text']};
+    background: ${(props) => props.theme.COLORS.background};
+    color: ${(props) => props.theme.COLORS['base-text']};
     -webkit-font-smoothing: antialiased;
   }
 
